@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WPU Blog | Home</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+@extends('layout.main')
 
-    <h1>Posts</h1>
+@section('container')
+    
+    @foreach ( $posts as $post )
+        <article class="mb-5">
+            <h2>
+                <a href="/posts/{{ $post["slug"] }}">{{ $post["slug"] }}</a>
+            </h2>
+            <h5>By: {{  $post["author"] }}</h5>
+            <p>{{  $post["body"] }}</p>
+        </article>
+        
+    @endforeach
 
-</body>
-</html>
+@endsection
